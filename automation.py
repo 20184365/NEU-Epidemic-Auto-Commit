@@ -48,30 +48,27 @@ def run():
     # 平台登陆完成
 
     # 开始填写信息
-    time.sleep(5)
     WebDriverWait(driver, 60).until(lambda x: len(
-        x.find_elements_by_xpath(
-            '//*[@id="app"]/main/div/form/div[1]/table/tbody/tr/td[1]/div/div/div/label[1]/span[1]/span')) > 0)
+        x.find_elements_by_xpath('//*[@id="app"]/main/div/form/div[1]/table/tbody/tr/td[1]/div/div/div/label[1]')) > 0)
     driver.find_element_by_xpath(
-        '//*[@id="app"]/main/div/form/div[1]/table/tbody/tr/td[1]/div/div/div/label[1]/span[1]/span').click()
+        '//*[@id="app"]/main/div/form/div[1]/table/tbody/tr/td[1]/div/div/div/label[1]').click()
 
-    time.sleep(5)
     WebDriverWait(driver, 60).until(lambda x: len(x.find_elements_by_xpath(
-        '//*[@id="app"]/main/div/form/div[3]/div[2]/table/tbody/tr/td/div/div/div/label[1]/span[1]/span')) > 0)
+        '//*[@id="app"]/main/div/form/div[3]/div[2]/table/tbody/tr[1]/td/div/div/div/label[1]')) > 0)
     driver.find_element_by_xpath(
-        '//*[@id="app"]/main/div/form/div[3]/div[2]/table/tbody/tr/td/div/div/div/label[1]/span[1]/span').click()
+        '//*[@id="app"]/main/div/form/div[3]/div[2]/table/tbody/tr[1]/td/div/div/div/label[1]').click()
 
-    time.sleep(5)
     WebDriverWait(driver, 60).until(lambda x: len(x.find_elements_by_xpath(
-        '//*[@id="app"]/main/div/form/div[4]/div[2]/table/tbody/tr[1]/td/div/div/div/label[1]/span[1]/span')) > 0)
+        '//*[@id="app"]/main/div/form/div[4]/div[2]/table/tbody/tr[1]/td/div/div/div/label[1]')) > 0)
     driver.find_element_by_xpath(
-        '//*[@id="app"]/main/div/form/div[4]/div[2]/table/tbody/tr[1]/td/div/div/div/label[1]/span[1]/span').click()
+        '//*[@id="app"]/main/div/form/div[4]/div[2]/table/tbody/tr[1]/td/div/div/div/label[1]').click()
 
-    time.sleep(5)
+    time.sleep(1)
     WebDriverWait(driver, 60).until(lambda x: len(x.find_elements_by_xpath(
         '//*[@id="app"]/main/div/form/div[6]/button')) > 0)
     driver.find_element_by_xpath('//*[@id="app"]/main/div/form/div[6]/button').click()
 
+<<<<<<< HEAD
 
     #new try
     time.sleep(5)
@@ -112,6 +109,11 @@ def run():
         lambda x: len(x.find_elements_by_xpath('/html/body/div[2]/h2')) > 0)
     if driver.find_element_by_xpath('/html/body/div[2]/h2').text != "新冠肺炎疫情实时动态":
         raise Exception("Unknown ERROR")
+=======
+    WebDriverWait(driver, 30).until(
+        lambda x: len(x.find_elements_by_xpath('//*[@id="app"]/main/div/div/div/div/div[2]/a[1]')) > 0)
+
+>>>>>>> parent of e46a19e... Update automation.py
     # 填写信息结束
 
 
@@ -120,7 +122,7 @@ if __name__ == '__main__':
     chrome_options = Options()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
-    chrome_options.add_argument("window-size=1920,1080")
+    chrome_options.add_argument("window-size=1024,768")
     chrome_options.add_argument("--no-sandbox")
 
     driver = webdriver.Chrome(chrome_options=chrome_options)
